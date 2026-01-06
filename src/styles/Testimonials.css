@@ -1,0 +1,516 @@
+/* Testimonials Section - Matching Website Design System */
+
+/* Section Title Styling - Consistent with other sections */
+.section-title h5::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: var(--primary);
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Main Testimonial Card */
+.testimonial-main-card {
+  position: relative;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease;
+  border: 1px solid var(--gray-200);
+}
+
+.testimonial-main-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+/* Quote Icon */
+.quote-icon-wrapper {
+  text-align: center;
+}
+
+.quote-icon-wrapper i {
+  font-size: 3rem;
+  opacity: 0.3;
+}
+
+/* Navigation Buttons - Improved mobile positioning */
+.testimonial-nav-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-nav-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.prev-btn {
+  left: -22px;
+}
+
+.next-btn {
+  right: -22px;
+}
+
+.testimonial-nav-btn i {
+  font-size: 1.1rem;
+}
+
+/* Testimonial Content */
+.testimonial-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--dark);
+  font-style: italic;
+  text-align: center;
+  font-weight: 300;
+}
+
+/* Author Info */
+.author-image img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border: 3px solid var(--primary);
+}
+
+.author-name {
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.author-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rating i {
+  font-size: 0.9rem;
+}
+
+/* Testimonial Indicators */
+.testimonial-indicators {
+  gap: 0.5rem;
+}
+
+.indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: var(--gray-300);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator-dot.active {
+  background: var(--primary);
+  transform: scale(1.3);
+}
+
+.indicator-dot:hover {
+  background: var(--secondary);
+}
+
+/* Stats Cards */
+.stat-card {
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  opacity: 0.9;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Preview Cards */
+.preview-card {
+  background: var(--gray-100);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.preview-card:hover {
+  background: var(--light);
+  transform: translateX(5px);
+}
+
+.preview-image {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.preview-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.preview-rating i {
+  font-size: 0.7rem;
+  margin-right: 0.1rem;
+}
+
+/* Mobile Navigation Bar Styles */
+.mobile-nav-bar {
+  background: transparent;
+  padding: 0;
+  border: none;
+}
+
+.mobile-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(6, 163, 218, 0.3);
+}
+
+.mobile-nav-btn:hover {
+  background: var(--secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(6, 163, 218, 0.4);
+}
+
+.mobile-nav-btn:active {
+  transform: translateY(0);
+}
+
+.mobile-nav-btn.animating {
+  background: var(--secondary);
+  transform: scale(0.95);
+}
+
+.mobile-nav-btn i {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.mobile-testimonial-counter {
+  background: var(--light);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 2px solid var(--primary);
+  font-weight: 600;
+  color: var(--primary);
+  font-size: 0.95rem;
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design - Mobile Navigation Improvements */
+@media (max-width: 991.98px) {
+  .testimonial-main-card {
+    position: relative;
+    overflow: visible;
+  }
+  
+  .testimonial-indicators {
+    margin-top: 2rem;
+    justify-content: center;
+  }
+  
+  .testimonial-stats {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .testimonial-main-card {
+    padding: 2rem !important;
+  }
+  
+  .mobile-nav-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .mobile-nav-btn i {
+    font-size: 1rem;
+  }
+  
+  .mobile-testimonial-counter {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    min-width: 70px;
+  }
+  
+  .testimonial-text {
+    font-size: 1.1rem;
+  }
+  
+  .author-image img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stat-card {
+    padding: 1.5rem !important;
+  }
+  
+  .stat-icon {
+    font-size: 2rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .testimonial-main-card {
+    padding: 1.5rem !important;
+  }
+  
+  .mobile-nav-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .mobile-nav-btn i {
+    font-size: 0.9rem;
+  }
+  
+  .mobile-testimonial-counter {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
+    min-width: 65px;
+  }
+  
+  .quote-icon-wrapper i {
+    font-size: 2rem;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .testimonial-author-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .author-image {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Animation Classes */
+.testimonial-content {
+  transition: all 0.15s ease-in-out; /* Reduced from 0.3s */
+}
+
+/* Slide Out Animations */
+.slide-left {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.slide-right {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+/* Slide In Animations */
+.slide-in-left {
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: slideInLeft 0.15s ease-out forwards; /* Reduced from 0.3s */
+}
+
+.slide-in-right {
+  transform: translateX(100%);
+  opacity: 0;
+  animation: slideInRight 0.15s ease-out forwards; /* Reduced from 0.3s */
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Button Animation States - Mobile Optimized */
+.testimonial-nav-btn.animating {
+  background: var(--secondary);
+  transform: translateY(-50%) scale(0.9);
+}
+
+.mobile-nav-btn.animating {
+  background: var(--secondary);
+  transform: scale(0.95);
+}
+
+.testimonial-nav-btn.animating i {
+  animation: buttonPulse 0.3s ease-in-out;
+}
+
+@keyframes buttonPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Disabled States During Animation */
+.indicator-dot.disabled,
+.preview-card.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Enhanced Button Hover Effects - Mobile Optimized */
+.testimonial-nav-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.mobile-nav-btn:active {
+  transform: translateY(0);
+}
+
+/* Smooth transitions for all interactive elements */
+.indicator-dot,
+.preview-card,
+.testimonial-nav-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Faster transition */
+}
+
+/* Add a subtle bounce effect to the active indicator */
+.indicator-dot.active {
+  animation: indicatorBounce 0.3s ease-out; /* Reduced from 0.5s */
+}
+
+@keyframes indicatorBounce {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+
+/* Fade effect for author image during transition */
+.author-image img {
+  transition: all 0.15s ease; /* Reduced from 0.3s */
+}
+
+.slide-left .author-image img,
+.slide-right .author-image img {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Simplified star animation - removed stagger for faster feel */
+.rating i {
+  animation: starFadeIn 0.2s ease-out; /* Reduced from 0.5s */
+  animation-fill-mode: both;
+}
+
+@keyframes starFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Mobile Animation Adjustments */
+@media (max-width: 767.98px) {
+  .slide-left,
+  .slide-right,
+  .slide-in-left,
+  .slide-in-right {
+    transform: translateY(-20px);
+  }
+  
+  .slide-in-left,
+  .slide-in-right {
+    animation: slideInMobile 0.15s ease-out forwards; /* Reduced from 0.3s */
+  }
+  
+  @keyframes slideInMobile {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

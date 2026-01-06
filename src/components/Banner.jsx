@@ -1,0 +1,148 @@
+import { useState } from 'react'
+
+const Banner = () => {
+  const [selectedDate, setSelectedDate] = useState('')
+  const [selectedService, setSelectedService] = useState('')
+
+  const handleSearchDoctor = (e) => {
+    e.preventDefault()
+    if (selectedDate && selectedService) {
+      // Handle doctor search logic
+      // In a real app, this would navigate to search results or show available doctors
+    } else {
+      alert('Please select both date and service')
+    }
+  }
+
+  const handleAppointmentClick = (e) => {
+    e.preventDefault()
+    // Navigate to appointment section
+    const appointmentSection = document.getElementById('appointment')
+    if (appointmentSection) {
+      appointmentSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <div className="container-fluid banner mb-3 mb-lg-5">
+      <div className="container">
+        <div className="row g-3 g-lg-0">
+          {/* Opening Hours Card */}
+          <div className="col-12 col-md-4 wow zoomIn" data-wow-delay="0.1s">
+            <div className="bg-primary d-flex flex-column p-4 p-lg-5 h-100" style={{ minHeight: '250px' }}>
+              <h3 className="text-white mb-3 fs-5 fs-lg-4">Opening Hours</h3>
+              <div className="d-flex justify-content-between text-white mb-2 mb-lg-3">
+                <h6 className="text-white mb-0 small">Sunday-Friday</h6>
+                <p className="mb-0 small">09:00 – 18:30</p>
+              </div>
+              <div className="d-flex justify-content-between text-white mb-3 mb-lg-4">
+                <h6 className="text-white mb-0 small">Saturday</h6>
+                <p className="mb-0 small">09:00 – 17:30</p>
+              </div>
+              <div className="mt-auto" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                <a 
+                  className="btn btn-light" 
+                  style={{ 
+                    padding: '8px 16px', 
+                    minHeight: '44px', 
+                    fontSize: '14px', 
+                    width: '100%', 
+                    maxWidth: '200px',
+                    textAlign: 'center',
+                    display: 'block',
+                    margin: '0 auto'
+                  }} 
+                  href="#appointment" 
+                  onClick={handleAppointmentClick}
+                >
+                  Appointment
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Search A Doctor Card */}
+          <div className="col-12 col-md-4 wow zoomIn" data-wow-delay="0.3s">
+            <div className="bg-dark d-flex flex-column p-4 p-lg-5 h-100" style={{ minHeight: '250px' }}>
+              <h3 className="text-white mb-3 fs-5 fs-lg-4">Search A Doctor</h3>
+              
+              {/* Date Picker */}
+              <div className="mb-3">
+                <input 
+                  type="date" 
+                  className="form-control bg-light border-0"
+                  style={{ height: '40px' }}
+                  value={selectedDate}
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                />
+              </div>
+
+              {/* Service Selection */}
+              <select 
+                className="form-select bg-light border-0 mb-3" 
+                style={{ height: '40px' }}
+                value={selectedService}
+                onChange={(e) => setSelectedService(e.target.value)}
+              >
+                <option value="">Select A Service</option>
+                <option value="1">Teeth cleaning</option>
+                <option value="2">Consultation</option>
+              </select>
+
+              <div className="mt-auto" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                <a 
+                  className="btn btn-light" 
+                  style={{ 
+                    padding: '8px 16px', 
+                    minHeight: '44px', 
+                    fontSize: '14px', 
+                    width: '100%', 
+                    maxWidth: '200px',
+                    textAlign: 'center',
+                    display: 'block',
+                    margin: '0 auto'
+                  }} 
+                  href="#search" 
+                  onClick={handleSearchDoctor}
+                >
+                  Search Doctor
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Make Appointment Card */}
+          <div className="col-12 col-md-4 wow zoomIn" data-wow-delay="0.6s">
+            <div className="bg-secondary d-flex flex-column p-4 p-lg-5 h-100" style={{ minHeight: '250px' }}>
+              <h3 className="text-white mb-3 fs-5 fs-lg-4">Make Appointment</h3>
+              <p className="text-white mb-4 small">
+                Say goodbye to long wait times! Book your dental appointment online in just a few clicks and enjoy the convenience of a healthier smile on your schedule.
+              </p>
+              <div className="mt-auto" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                <a 
+                  className="btn btn-primary" 
+                  style={{ 
+                    padding: '8px 16px', 
+                    minHeight: '44px', 
+                    fontSize: '14px', 
+                    width: '100%', 
+                    maxWidth: '200px',
+                    textAlign: 'center',
+                    display: 'block',
+                    margin: '0 auto'
+                  }} 
+                  href="#appointment" 
+                  onClick={handleAppointmentClick}
+                >
+                  Appointment
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Banner

@@ -1,0 +1,165 @@
+import { useEffect, useRef, useCallback, memo } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/effect-fade'
+
+// Import component styles
+import '../styles/carousel-button-fix.css'
+
+// Import carousel data
+import { carouselSlides } from '../data/siteData'
+
+// Import navigation utility
+import { scrollToSection } from '../utils/navigation'
+
+const HeroCarousel = memo(({ autoPlay = true, interval = 5000 }) => {
+  const swiperRef = useRef(null)
+
+  const handleButtonClick = useCallback((link) => {
+    if (link.startsWith('#')) {
+      const section = link.substring(1)
+      scrollToSection(section)
+    } else {
+      window.location.href = link
+    }
+  }, [])
+
+  // Preload critical images
+  useEffect(() => {
+    const preloadImages = () => {
+      carouselSlides.slice(0, 2).forEach(slide => {
+        const img = new Image()
+        img.src = slide.image
+      })
+    }
+    
+    preloadImages()
+  }, [])
+
+  const swiperConfig = {
+    modules: [Navigation, Pagination, Autoplay, EffectFade],
+    effect: "fade",
+    fadeEffect: { crossFade: true },
+    autoplay: autoPlay ? {
+      delay: interval,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true
+    } : false,
+    navigation: {
+      nextEl: '.carousel-control-next',
+      prevEl: '.carousel-control-prev',
+    },
+    pagination: {
+      clickable: true,
+      el: '.swiper-pagination'
+    },
+    loop: true,
+    className: "hero-carousel",
+    id: "header-carousel",
+    lazy: {
+      loadPrevNext: true,
+      loadPrevNextAmount: 1
+    }
+  }
+
+  return (
+    <section id="home" className="container-fluid p-0">
+      <Swiper ref={swiperRef} {...swiperConfig}>
+        {carouselSlides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <div className="carousel-item-wrapper position-relative">
+              <img 
+                className="w-100" 
+                src={slide.image} 
+                alt={`Slide ${slide.id}`}
+                loading={slide.id === 1 ? "eager" : "lazy"}
+                decoding="async"
+              />
+              <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                <div className="p-3" style={{ maxWidth: '900px' }}>
+                  <h5 className="text-white text-uppercase mb-3 animated slideInDown">
+                    {slide.title}
+                  </h5>
+                  <h1 className="display-1 text-white mb-md-4 animated zoomIn">
+                    {slide.subtitle}
+                  </h1>
+                  <div className="carousel-buttons" style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    width: '100%', 
+                    gap: '0.5rem',
+                    margin: '0 auto',
+                    position: 'relative'
+                  }}>
+                    <button
+                      className={slide.primaryButton.className}
+                      onClick={() => handleButtonClick(slide.primaryButton.link)}
+                      style={{ 
+                        width: '100%', 
+                        maxWidth: '200px', 
+                        textAlign: 'center', 
+                        margin: '0 auto',
+                        display: 'block',
+                        position: 'relative',
+                        left: '0',
+                        right: '0'
+                      }}
+                    >
+                      {slide.primaryButton.text}
+                    </button>
+                    <button
+                      className={slide.secondaryButton.className}
+                      onClick={() => handleButtonClick(slide.secondaryButton.link)}
+                      style={{ 
+                        width: '100%', 
+                        maxWidth: '200px', 
+                        textAlign: 'center', 
+                        margin: '0 auto',
+                        display: 'block',
+                        position: 'relative',
+                        left: '0',
+                        right: '0'
+                      }}
+                    >
+                      {slide.secondaryButton.text}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
+
+        <button 
+          className="carousel-control-prev" 
+          type="button"
+          aria-label="Previous slide"
+        >
+          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button 
+          className="carousel-control-next" 
+          type="button"
+          aria-label="Next slide"
+        >
+          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+
+        <div className="swiper-pagination"></div>
+      </Swiper>
+    </section>
+  )
+})
+
+HeroCarousel.displayName = 'HeroCarousel'
+
+export default HeroCarousel

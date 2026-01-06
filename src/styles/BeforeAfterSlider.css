@@ -1,0 +1,267 @@
+/* Simple and Fast Before/After Slider */
+.before-after-simple {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: none; /* Prevent scrolling during touch interactions */
+}
+
+/* Before Image (Background - always visible) */
+.before-image-simple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.before-image-simple img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* After Image (Clipped - images stay in place) */
+.after-image-simple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.after-image-simple img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Image Labels */
+.image-label-simple {
+  position: absolute;
+  bottom: 15px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  z-index: 10;
+}
+
+.before-label-simple {
+  left: 15px;
+  background: rgba(9, 30, 62, 0.9);
+  color: white;
+}
+
+.after-label-simple {
+  right: 15px;
+  background: var(--primary);
+  color: white;
+}
+
+/* Slider Line */
+.slider-line-simple {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: white;
+  z-index: 5;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.slider-line-simple::before,
+.slider-line-simple::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 20px;
+  height: 2px;
+  background: white;
+  transform: translateX(-50%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.slider-line-simple::before {
+  top: 0;
+}
+
+.slider-line-simple::after {
+  bottom: 0;
+}
+
+/* Slider Handle */
+.slider-handle-simple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 6;
+  touch-action: none; /* Prevent scrolling when touching the handle */
+}
+
+.slider-handle-simple:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  border-color: var(--secondary);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slider-handle-simple.dragging {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.2);
+  border-color: var(--secondary);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.slider-handle-simple:focus {
+  outline: none;
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(6, 163, 218, 0.3);
+}
+
+/* Slider Arrows */
+.slider-arrows-simple {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.slider-handle-simple:hover .slider-arrows-simple,
+.slider-handle-simple.dragging .slider-arrows-simple {
+  color: var(--secondary);
+}
+
+/* Instructions */
+.slider-instructions-simple {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.before-after-simple:hover .slider-instructions-simple {
+  opacity: 1;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767.98px) {
+  .before-after-simple {
+    min-height: 250px;
+  }
+  
+  .slider-handle-simple {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .slider-arrows-simple {
+    font-size: 0.7rem;
+  }
+  
+  .image-label-simple {
+    bottom: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .before-label-simple {
+    left: 10px;
+  }
+  
+  .after-label-simple {
+    right: 10px;
+  }
+  
+  .slider-instructions-simple {
+    top: 10px;
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .before-after-simple {
+    min-height: 200px;
+  }
+  
+  .slider-handle-simple {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .slider-arrows-simple {
+    font-size: 0.6rem;
+    gap: 1px;
+  }
+  
+  .image-label-simple {
+    padding: 4px 8px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Performance optimizations for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .slider-handle-simple {
+    transition: none;
+  }
+  
+  .image-label-simple {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .slider-handle-simple {
+    border-width: 4px;
+  }
+  
+  .slider-line-simple {
+    width: 3px;
+  }
+  
+  .image-label-simple {
+    background: black;
+    color: white;
+  }
+}

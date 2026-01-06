@@ -1,0 +1,551 @@
+/* App-specific styles - Minor optimizations only */
+.App {
+  min-height: 100vh;
+}
+
+/* Global Mobile-First Responsive Design */
+
+/* Base styles for all devices */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Container adjustments for mobile */
+.container-fluid {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (min-width: 576px) {
+  .container-fluid {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-fluid {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Navbar styles - Mobile First */
+.navbar,
+nav.navbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  transition: all 0.3s;
+  min-height: 70px;
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  height: 60px;
+  max-height: 80px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+/* Mobile navbar improvements */
+@media (max-width: 991.98px) {
+  .navbar,
+  nav.navbar,
+  .navbar.navbar-expand-lg {
+    position: fixed !important;
+    padding: 0.75rem 1rem;
+  }
+  
+  .navbar-brand img {
+    height: 50px;
+    max-height: 60px;
+  }
+  
+  .navbar-collapse {
+    background: white;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    border: 1px solid #e9ecef;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f8f9fa;
+    font-weight: 500;
+    color: #333 !important;
+  }
+  
+  .navbar-nav .nav-link:last-child {
+    border-bottom: none;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: #f8f9fa;
+    color: #06A3DA !important;
+  }
+  
+  .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    box-shadow: none;
+    border: none;
+    background: #f8f9fa;
+    margin-left: 1rem;
+    border-radius: 0.375rem;
+  }
+  
+  .dropdown-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop navbar */
+@media (min-width: 992px) {
+  .navbar,
+  nav.navbar,
+  .navbar.navbar-expand-lg {
+    position: fixed !important;
+    padding: 1rem 2rem;
+  }
+  
+  .navbar-brand img {
+    height: 80px;
+    max-height: 100px;
+  }
+}
+
+/* Section spacing - Mobile First */
+section {
+  padding: 2rem 0;
+}
+
+@media (min-width: 576px) {
+  section {
+    padding: 3rem 0;
+  }
+}
+
+@media (min-width: 992px) {
+  section {
+    padding: 5rem 0;
+  }
+}
+
+/* Typography - Mobile First */
+.display-1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.display-5 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.3;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .display-1 {
+    font-size: 3.5rem;
+  }
+  
+  .display-5 {
+    font-size: 2.25rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .display-1 {
+    font-size: 5.5rem;
+  }
+  
+  .display-5 {
+    font-size: 3rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Modal styles */
+.modal.show {
+  display: block !important;
+}
+
+/* Carousel styles */
+.carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(9, 30, 62, .85);
+  z-index: 1;
+}
+
+/* Banner styles */
+.banner {
+  margin-bottom: 5rem;
+}
+
+/* Banner button container alignment - Force consistent alignment */
+.banner .mt-auto {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin-top: auto !important;
+}
+
+/* Hero Carousel button alignment fixes - Override all conflicting styles */
+.hero-carousel .carousel-buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  gap: 0.5rem !important;
+  margin: 0 auto !important;
+}
+
+.hero-carousel .carousel-buttons button {
+  display: block !important;
+  width: 100% !important;
+  max-width: 200px !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  left: 0 !important;
+  right: 0 !important;
+  float: none !important;
+}
+
+@media (min-width: 576px) {
+  .hero-carousel .carousel-buttons {
+    flex-direction: row !important;
+    width: auto !important;
+    gap: 1rem !important;
+  }
+  
+  .hero-carousel .carousel-buttons button {
+    width: auto !important;
+    max-width: none !important;
+  }
+}
+
+/* Banner buttons - Override all conflicting styles */
+.banner .btn {
+  display: block !important;
+  width: 100% !important;
+  max-width: 200px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+  padding: 8px 16px !important;
+  min-height: 44px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.5 !important;
+  white-space: nowrap !important;
+}
+
+.banner .bg-primary,
+.banner .bg-dark,
+.banner .bg-secondary {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767.98px) {
+  .banner .btn {
+    min-height: 40px !important;
+    font-size: 13px !important;
+    width: 100% !important;
+    max-width: 200px !important;
+    margin: 0 auto !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner .btn {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 991.98px) {
+  .banner {
+    position: relative;
+    margin-top: -90px;
+    z-index: 1;
+  }
+}
+
+/* Animation classes - Keep all animations */
+.wow {
+  visibility: hidden;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+/* Utility classes */
+.section-title h5 {
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  color: var(--primary-color);
+}
+
+.section-title h5::before {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 2px;
+  background: var(--primary-color);
+  bottom: -5px;
+  left: 0;
+}
+
+/* Service item styles - Keep hover animations */
+.service-item {
+  transition: all 0.3s;
+  outline: none !important; /* Remove focus outline */
+  cursor: default; /* Remove pointer cursor */
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Prevent any focus/active states on service items */
+.service-item:focus,
+.service-item:focus-visible,
+.service-item:active {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Price item styles - Keep hover animations */
+.price-item {
+  transition: all 0.3s;
+}
+
+.price-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Team member styles - Keep hover animations */
+.team-member {
+  transition: all 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+}
+
+/* Testimonial styles */
+.testimonial-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Contact form styles */
+.contact-form {
+  background: var(--light-color);
+  border-radius: 10px;
+}
+
+/* Footer styles */
+.footer {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.footer a {
+  color: #ccc;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: var(--primary-color);
+}
+
+/* Back to top button styles */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none !important;
+}
+
+.back-to-top:hover {
+  transform: translateY(-3px);
+  text-decoration: none !important;
+}
+
+/* Ensure the icon is perfectly centered */
+.back-to-top i {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Navigation active state */
+.navbar-nav .nav-link.active {
+  color: #0d6efd !important;
+  font-weight: 600;
+}
+
+/* Search modal styles */
+.modal-fullscreen .modal-content {
+  border: none;
+  border-radius: 0;
+}
+
+/* Enhanced search modal styles */
+.modal-fullscreen .modal-body .form-control {
+  background-color: white !important;
+  color: #333 !important;
+  border: 2px solid #06A3DA !important;
+  font-size: 1.1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.modal-fullscreen .modal-body .form-control:focus {
+  border-color: #06A3DA !important;
+  box-shadow: 0 0 0 0.2rem rgba(6, 163, 218, 0.25) !important;
+  background-color: white !important;
+}
+
+.modal-fullscreen .modal-body .form-control::placeholder {
+  color: #6c757d;
+  opacity: 0.8;
+}
+
+.modal-fullscreen .modal-body .btn-primary {
+  background-color: #06A3DA !important;
+  border-color: #06A3DA !important;
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+.modal-fullscreen .modal-body .btn-primary:hover {
+  background-color: #0582b8 !important;
+  border-color: #0582b8 !important;
+  transform: translateY(-1px);
+}
+
+.modal-fullscreen .btn-close {
+  background-color: white !important;
+  border: 2px solid #06A3DA !important;
+  border-radius: 50% !important;
+  width: 40px !important;
+  height: 40px !important;
+  opacity: 1 !important;
+}
+
+.modal-fullscreen .btn-close:hover {
+  background-color: #06A3DA !important;
+  transform: scale(1.1);
+}
+
+/* DatePicker custom styles */
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  height: 40px !important;
+}
+
+/* Section minimum height for navigation */
+section {
+  min-height: 400px;
+}
+
+/* Developer popup styles */
+.modal .modal-content {
+  border-radius: 10px;
+}
+
+.modal .modal-header {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.modal .modal-footer {
+  border-top: 1px solid #dee2e6;
+}
+
+/* Force sticky navbar with high specificity */
+.navbar.navbar-expand-lg.bg-white.navbar-light,
+nav.navbar.navbar-expand-lg.bg-white.navbar-light,
+header .navbar.navbar-expand-lg.bg-white.navbar-light {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1030 !important;
+  width: 100% !important;
+  background-color: white !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+/* Sticky navbar class with maximum specificity */
+.sticky-navbar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1030 !important;
+  width: 100% !important;
+}
