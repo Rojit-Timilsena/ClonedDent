@@ -80,7 +80,15 @@ const HeroCarousel = memo(({ autoPlay = true, interval = 5000 }) => {
                 loading={slide.id === 1 ? "eager" : "lazy"}
                 decoding="async"
               />
-              <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">
+              {/* Blue overlay */}
+              <div 
+                className="position-absolute top-0 start-0 w-100 h-100"
+                style={{ 
+                  background: 'rgba(9, 30, 62, .7)',
+                  zIndex: 1
+                }}
+              ></div>
+              <div className="carousel-caption d-flex flex-column align-items-center justify-content-center" style={{ zIndex: 2 }}>
                 <div className="p-3" style={{ maxWidth: '900px' }}>
                   <h5 className="text-white text-uppercase mb-3 animated slideInDown">
                     {slide.title}
